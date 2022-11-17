@@ -9,7 +9,7 @@ Organization of the folders are as follows;
 
 1.  [cartMath](cartMath.md): we tried to replicate most of the results from "[A Mathematical Model of CAR-T Immunotherapyin Preclinical Studies of Hematological Cancers](https://pubmed.ncbi.nlm.nih.gov/34208323/)** by Barros et.al. Every matlab file refers to the corresponding figure in the paper. Carefully read the comments at the beginning of each code.
 
-2.  [lectures](lectures.md): matlab implementations of some of the topics we discussed, such as solving ODEs in matlab, parameter fitting etc.
+2.  [lectures](../lectures.md): matlab implementations of some of the topics we discussed, such as solving ODEs in matlab, parameter fitting etc.
 
 3.  [assignments](assignments.md): assignment and suggested solution. We actually do not that much(:
 
