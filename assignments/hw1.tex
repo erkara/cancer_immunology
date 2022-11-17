@@ -1,0 +1,120 @@
+\documentclass[12pt]{exam}        %% What type of document you're writing.
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,amssymb} % Math packages
+%\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+
+\usepackage{listings}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+
+
+
+\begin{document}
+
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{blue}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+
+
+\title{\vspace{-0.5in}\textit{SMATH-358 Homework-1}, Due: Sept 30,Friday 11:59pm}
+\date{\vspace{-60pt}}
+
+\maketitle
+\begin{center}
+  \begin{tabular}[c]{ll}
+    &Name: \underline{\phantom{----------------------------------------------------------}}
+\end{tabular}
+\end{center}
+
+
+
+\begin{questions} 
+
+\question  Show that the general solution of the logistic differential equation
+
+\begin{equation*}
+\begin{cases}
+\dfrac{dP}{dt} = rP(1-P/K) \\[10pt]
+P(0) = P_0
+\end{cases}
+\end{equation*}
+
+can be written by $P(t) = \dfrac{KP_0e^{rt}}{K+P_0(e^{rt}-1)}$. 
+
+\question Consider the following coupled linear ODE system;
+\begin{equation*}
+\begin{cases}
+\dfrac{dx_1}{dt} = 4x_1 + 2x_2 +3e^t \\[10pt]
+\dfrac{dx_2}{dt} = 2x_1 + x_2 +e^t
+\end{cases}
+\end{equation*} 
+Verify that the functions $x_1=c_1+2c_2e^{5t}-\dfrac{e^{t}}{2}$ and $x_2=-2c_1+c_2e^{5t}-\dfrac{3e^{t}}{4}$ are the general solutions of this ODE system. Find a particular solution with the initial values $x_1(0)=1,x_2(0)=3$ .
+
+\question In this question, you will replicate some of the results in \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4768423/pdf/12885_2016_Article_2164.pdf}{\color{blue}{\textit{Differences in predictions of ODE models of tumor growth: a cautionary example}}} by Murphy et.al. 
+\begin{parts}
+\part First, click on the link and read the paper. The paper concerns different tumor growth models and easy to read. 
+\part In "Quantitative Example" section, they indicate that they used the data from \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2713268/pdf/1471-2164-10-301.pdf}{Systemic treatment of xenografts with vaccinia virus GLV-1h68 reveals the immunologic facet of oncolytic therapy} by Worschech et al by using \href{https://apps.automeris.io/wpd/}{WebPlotDigitizer}. Click on paper link, go to Figure 1A and extract the data from GI-101A control group(red points) using WebPlotDigitizer. You should learn how to use this tool, it is super easy. Download your data as a "csv" file and name it "tumor.csv". Make sure that the first column is the day and second column is the tumor size in your csv file. 
+\part In Murphy et.al, replicate Figure-1 and Figure-2. Let's break down how we should do it;
+\begin{enumerate}
+
+\item There are 7 different growth models are discussed in the paper, namely, \textit{exponential, Mendelsohn, logistic, linear, surface, Gompertz, and Bertalanffy}. You will numerically solve each of them with matlab "ode45" command. To do so, we need a function to return these ODEs. Use the following template and complete the rest. Use the parameter values($a,b,c$ etc) given in Figure-1.
+\begin{center}
+\begin{lstlisting}
+function dydt = GetODE(t,y,model)
+    if model=='exponential'
+        a = 0.0262;
+        dydt = a*y;
+    elseif model=='Mendelsohn'
+        a = 0.286;
+        b = 0.616;
+        dydt = a*y^b;
+    %complete rest of the code
+    end
+end
+\end{lstlisting}
+\end{center}
+
+\item Just like we did in the class, define a step size $dt$, the last time point $T$ and form "tspan" etc and plot the solutions for the each model on the same figure. Figure out what $T$ should be to produce Figure-1.
+\item Learn how to read a "csv" file and convert it to matrix. Read your "tumor.csv" you created and plot the first and second column just like in the paper. Notice that you should use \textbf{only the first 7 days} for this figure as indicated in the paper. Make sure all the plots you obtain in the previous item and these data points are on the same figure.
+\item If you properly complete (1-3), you should be able to produce Figure-1. 
+\item Change $T$ variable and and use the entire "tumor.csv" to produce Figure-2. 
+
+\end{enumerate}
+
+\item Generate SSR and $\text{AIC}_{C}$ values indicated in Figure-1. You can print them out with "fprintf" command. 
+\item You should submit three files. First one is the pdf file for question \#1 and \#2, name it as [your first name].pdf. The second one is your  Matlab code as ".m" file and format it as "[your first name].m". The last one is  "tumor.csv" file. Make sure that when you run your matlab file, it correctly produces Figure-1 and item (d). I will not debug your code.
+
+\item You should need help to finish your homework, please visit me during my office hours. You have two weeks to finish and there is no deadline, cheers! 
+
+\end{parts}
+
+
+
+\end{questions}
+\end{document}
