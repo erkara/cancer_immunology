@@ -9,7 +9,7 @@ comments in the code where I could. The folders are organized as follows:
 
 2.  *lectures*: matlab implementations of some of the topics we discussed, such as solving ODEs in matlab, parameter fitting etc.
 
-3.  *assignments*: assignment and suggested solution. We actually do not that much(:
+3.  *assignments*: assignment and suggested solution. We actually do not have that much(:
 
 4.  *papers*: these are the papers we used throughout the semester. The ones numbered [1-5] will be presented by the groups in the class.
 
