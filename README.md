@@ -50,4 +50,4 @@ Topic: *Tumor and Cancer Stem Cells Treated with CAR-T Therapy and Inhibition of
 Team: [Campbell, Mika K.](mailto:mikacampbell@spelman.edu), [Sherrill, Ciera I.](mailto:cierasherrill@spelman.edu)
 
 
-You can also reach out to me at [Erdi Kara][mailto:erdi_kara88@hotmail.com]
+You can also reach out to me at (Erdi Kara)[mailto:erdi_kara88@hotmail.com]
